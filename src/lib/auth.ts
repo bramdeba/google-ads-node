@@ -35,7 +35,8 @@ export default class Auth {
       const { token } = await this.client.getAccessToken();
       return token as string;
     } catch (err) {
-      throw new Error(`Failed to refresh access token, reason=${err.message}`);
+      return "";
+      new Error(`Failed to refresh access token, reason=${err.message}`);
     }
   }
 
